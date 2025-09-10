@@ -1,1 +1,151 @@
 /* Add your CSS here */
+:root {
+  --brand-blue: #0071c5;
+  --surface: #f0f0f0;
+  --text: #1d1d1d;
+  --muted: #6c6c6c;
+  --radius: 4px;
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  background-color: var(--surface);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  background-color: #dbddec;
+  border-bottom: 1px solid #ddd;
+}
+
+.hero-content .logo {
+  background-color: #3064ac;
+  padding: 3rem 1.5rem;
+  width: 500px;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin: 0.5rem 0;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 60ch;
+  margin: 1rem auto 0;
+  color: var(--muted);
+}
+
+main {
+  padding: 2rem 0;
+}
+
+.timeline {
+  display: flex;
+  overflow-x: auto;
+  padding: 2rem 1rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS */
+}
+
+.timeline-card {
+  flex: 0 0 320px;
+  margin-right: 1rem;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  scroll-snap-align: start;
+}
+
+.timeline-card:last-child {
+  margin-right: 0;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-content h2 {
+  margin: 0 0 0.25rem;
+  color: var(--brand-blue);
+  font-size: 1.75rem;
+}
+
+.card-content h3 {
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+.card-content img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: var(--space-4);
+}
+
+.card-content p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  max-height: 0;
+  overflow: hidden;
+  margin: 0;
+  transition: max-height 0.3s ease-out, margin 0.3s ease-out;
+}
+
+.timeline-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-hover);
+}
+
+.timeline-card:hover .card-content p {
+  max-height: 200px; /* Adjust as needed */
+  margin-top: 1rem;
+}
+
+.scroll-hint {
+  text-align: center;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .timeline {
+    flex-direction: column;
+    overflow-x: hidden;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .timeline-card {
+    flex-basis: auto;
+    width: 100%;
+    max-width: 400px;
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline-card:last-child {
+    margin-bottom: 0;
+  }
+
+  .card-content p {
+    max-height: 200px; /* Always visible on mobile */
+    margin-top: 1rem;
+  }
+
+  .scroll-hint {
+    display: none;
+  }
+}
