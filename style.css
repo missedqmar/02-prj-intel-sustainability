@@ -10,7 +10,7 @@
   --light-gray: #999;
   --border-light: #e0e0e0;
   --timeline-bg: #dde8fc;
-  
+
   /* Sizing & Spacing */
   --section-padding: 3rem 1rem;
   --max-content-width: 1200px;
@@ -72,29 +72,26 @@ main {
   background: #fff;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: var(--spacing-lg);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card-base:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
 }
 
 .card-content {
   padding: var(--spacing-lg);
 }
 
+.card-content h2,
+.card-content h3 {
+  margin: 0 0 1rem;
+  color: var(--text);
+}
+
 .card-content h2 {
-  margin: 0 0 0.25rem;
-  color: var(--brand-blue);
   font-size: 1.75rem;
+  color: var(--brand-blue);
+  margin-bottom: 0.25rem;
 }
 
 .card-content h3 {
-  margin: 0 0 1rem;
   font-size: var(--font-size-md);
-  color: var(--text);
 }
 
 .card-content img {
@@ -278,17 +275,54 @@ main {
   padding: var(--section-padding);
 }
 
-.text-center { text-align: center; }
-.text-brand { color: var(--brand-blue); }
-.text-muted { color: var(--muted); }
-.mb-sm { margin-bottom: var(--spacing-sm); }
-.mb-md { margin-bottom: var(--spacing-md); }
-.mb-lg { margin-bottom: var(--spacing-lg); }
+.text-center {
+  text-align: center;
+}
+
+.text-brand {
+  color: var(--brand-blue);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.mb-sm {
+  margin-bottom: var(--spacing-sm);
+}
+
+.mb-md {
+  margin-bottom: var(--spacing-md);
+}
+
+.mb-lg {
+  margin-bottom: var(--spacing-lg);
+}
+
+.card-spacing {
+  padding: var(--spacing-lg);
+}
+
+.hover-lift {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* ==========================================================================
    MEDIA QUERIES
    ========================================================================== */
 @media (max-width: 768px) {
+
   /* Timeline Component */
   .timeline {
     flex-direction: column;
@@ -317,8 +351,7 @@ main {
   .scroll-hint {
     display: none;
   }
-  
-  /* Roadmap Component */
+
   .roadmap-timeline {
     flex-direction: column;
     align-items: center;
@@ -340,4 +373,3 @@ main {
     margin-bottom: 2rem;
   }
 }
-
